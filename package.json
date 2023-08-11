@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "build:ssg": "next build && next export",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,10 +13,11 @@
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
     "@apollo/client": "^3.6.9",
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^3.1.0",
     "@material-ui/core": "^4.12.4",
+    "@mui/material": "^5.14.4",
     "@types/react-slick": "^0.23.10",
     "@types/styled-components": "^5.1.26",
     "antd": "^5.4.2",
@@ -42,6 +44,7 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.0.3",
     "uuid": "^9.0.0",
+    "yarn": "^1.22.19",
     "yup": "^1.1.1",
     "zen-observable": "^0.10.0"
   },

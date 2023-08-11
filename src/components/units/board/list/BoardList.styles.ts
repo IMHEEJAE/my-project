@@ -3,7 +3,7 @@ import { Button, Card } from "antd";
 import { IMatched } from "./BoardList.types";
 import { LikeOutlined } from "@ant-design/icons";
 import { mq } from "../../../../commons/styles/globalStyles";
-
+import Skeleton from "@mui/material/Skeleton";
 export const Wrapper = styled.div`
   position: relative;
   width: 90%;
@@ -213,4 +213,30 @@ export const CardProfileLikeIcon = styled(LikeOutlined)`
   display: flex;
   font-size: 24px;
   color: #d4adfc;
+`;
+export const SkeletonMainTitle = styled(Skeleton)`
+  margin: 0 auto 40px;
+  text-align: center;
+  width: 15%;
+  height: 40px;
+`;
+export const SkeletonCardWrap = styled(Skeleton)``;
+export const SkeletonBox = styled.div`
+  display: flex;
+  width: 25%;
+`;
+export const SkeletonCard = styled(Skeleton)`
+  width: 100%;
+  height: 360px;
+  transform: none;
+`;
+export const SkeletonSearch = styled(Skeleton)`
+  margin: 0 0 20px auto;
+  width: 200px;
+  height: 40px;
+`;
+export const SkeletonBoardWrap = styled.div``;
+export const SkeletonBorad = styled(Skeleton)`
+  width: 100%;
+  height: 50px;
 `;

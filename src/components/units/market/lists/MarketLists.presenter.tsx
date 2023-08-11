@@ -5,6 +5,50 @@ import { IMarketPresenterProps } from "./MarketLists.types";
 import { v4 as uuidv4 } from "uuid";
 import SearchBar02 from "../../../commons/search/searchBar02/SearchBar02";
 export default function MarketsListsPresenter(props: IMarketPresenterProps) {
+  if (!props.BestItemData || !props.SoldOutFalseData || !props.SoldOutTrueData)
+    return (
+      <>
+        <S.Wrapper>
+          <S.MainWrap>
+            <S.BestWrap>
+              <S.SkeletonMainTitle />
+              <S.BestCard>
+                {Array.from({ length: 4 }).map((i: any) => (
+                  <S.SkeletonBox key={i}>
+                    <S.SkeletonCard />
+                  </S.SkeletonBox>
+                ))}
+              </S.BestCard>
+            </S.BestWrap>
+            <S.SkeletonMainTitle />
+            <S.SkeletonItemListTop>
+              <S.SkeletonTab>
+                <S.SkeletonTabList />
+                <S.SkeletonTabList />
+              </S.SkeletonTab>
+              <S.SkeletonSearch />
+            </S.SkeletonItemListTop>
+            <S.SkeletonItemWrap>
+              {Array.from({ length: 5 }).map((i: any) => (
+                <S.ListContent key={i}>
+                  <S.ListLeft>
+                    <S.SkeletonImgae />
+                    <S.ContentWrapper>
+                      <S.SkeletonTitle />
+                      <S.SkeletonPrice />
+                      <S.SellerWrap>
+                        <S.SkeletonSeller />
+                        <S.SkeletonLike />
+                      </S.SellerWrap>
+                    </S.ContentWrapper>
+                  </S.ListLeft>
+                </S.ListContent>
+              ))}
+            </S.SkeletonItemWrap>
+          </S.MainWrap>
+        </S.Wrapper>
+      </>
+    );
   const items: TabsProps["items"] = [
     {
       key: "1",

@@ -6,6 +6,34 @@ import { IBoardListPresenterProps } from "./BoardList.types";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 export default function BoardListPresenter(props: IBoardListPresenterProps) {
+  if (!props.data || !props.dataBest)
+    return (
+      <>
+        <S.Wrapper>
+          <S.MainWrap>
+            <S.BestWrap>
+              <S.SkeletonMainTitle />
+              <S.CardWrap>
+                {Array.from({ length: 4 }).map((i: any) => (
+                  <S.SkeletonBox key={i}>
+                    <S.SkeletonCard />
+                  </S.SkeletonBox>
+                ))}
+              </S.CardWrap>
+            </S.BestWrap>
+            <S.SkeletonMainTitle />
+            <S.SkeletonSearch />
+            <S.SkeletonBoardWrap>
+              {Array.from({ length: 10 }).map((i: any) => (
+                <div key={i}>
+                  <S.SkeletonBorad />
+                </div>
+              ))}
+            </S.SkeletonBoardWrap>
+          </S.MainWrap>
+        </S.Wrapper>
+      </>
+    );
   return (
     <>
       <S.Wrapper>

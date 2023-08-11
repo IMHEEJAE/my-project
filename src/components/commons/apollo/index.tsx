@@ -28,7 +28,6 @@ export default function ApolloSetting(props: IApolloSettingProps) {
   useEffect(() => {
     // 로컬스토리지에 저장
     void restoreAccess.toPromise().then((newAccessToken) => {
-      console.log("newAccessToken---------------------------", newAccessToken);
       setAccessToken(newAccessToken ?? "");
     });
   }, []);

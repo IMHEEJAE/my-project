@@ -39,14 +39,14 @@ const MypageContents = styled.div`
 interface ILayoutProps {
   children: JSX.Element;
 }
-const HIDDEN_HEADER = ["/login", "/login/regist"];
+const HIDDEN_HEADER = ["/login/", "/login/regist/"];
 // const HIDDEN_BANNER = ["/login", "/login/regist"];
 // const HIDDEN_NAVIGATION = ["/login", "/login/regist"];
 const HIDDEN_MYPAGE = [
-  "/mypage",
-  "/mypage/mycart",
-  "/mypage/mypoint",
-  "/mypage/myprofile",
+  "/mypage/",
+  "/mypage/mycart/",
+  "/mypage/mypoint/",
+  "/mypage/myprofile/",
 ];
 export default function Layout(props: ILayoutProps) {
   const router = useRouter();

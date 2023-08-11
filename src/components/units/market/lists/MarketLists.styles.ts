@@ -4,6 +4,7 @@ import { Button, Card, Tabs } from "antd";
 import { IMatched } from "./MarketLists.types";
 import InfiniteScroll from "react-infinite-scroller";
 import { mq } from "../../../../commons/styles/globalStyles";
+import { Skeleton } from "@mui/material";
 
 export const Wrapper = styled.div`
   position: relative;
@@ -153,6 +154,14 @@ export const ListItem = styled.div`
     flex-direction: column;
   }
 `;
+export const ListContent = styled.div`
+  padding: 20px;
+  border: 2px solid #000;
+  border-bottom: none;
+  :last-child {
+    border-bottom: 2px solid #000;
+  }
+`;
 export const ListLeft = styled.div`
   display: flex;
   align-items: center;
@@ -276,4 +285,64 @@ export const EditIcon = styled.img`
   width: 24px;
   height: 24px;
   margin-right: 4px;
+`;
+export const SkeletonMainTitle = styled(Skeleton)`
+  margin: 0 auto 40px;
+  text-align: center;
+  width: 15%;
+  height: 40px;
+`;
+export const SkeletonBox = styled.div`
+  display: flex;
+  width: 25%;
+`;
+export const SkeletonCard = styled(Skeleton)`
+  width: 100%;
+  height: 360px;
+  transform: none;
+`;
+export const SkeletonItemListTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+`;
+export const SkeletonTab = styled.div`
+  display: flex;
+  gap: 20px;
+`;
+export const SkeletonTabList = styled(Skeleton)`
+  width: 100px;
+  height: 40px;
+`;
+export const SkeletonSearch = styled(Skeleton)`
+  width: 200px;
+  height: 40px;
+`;
+export const SkeletonItemWrap = styled.div``;
+export const SkeletonImgae = styled(Skeleton)`
+  width: 160px;
+  height: 160px;
+  transform: none;
+`;
+export const SkeletonTitle = styled(Skeleton)`
+  width: 150px;
+  height: 20px;
+  transform: none;
+`;
+export const SkeletonPrice = styled(Skeleton)`
+  width: 100px;
+  height: 20px;
+  transform: none;
+  margin-top: 10px;
+`;
+export const SkeletonSeller = styled(Skeleton)`
+  width: 50px;
+  height: 20px;
+  transform: none;
+  margin-right: 20px;
+`;
+export const SkeletonLike = styled(Skeleton)`
+  width: 50px;
+  height: 20px;
+  transform: none;
 `;
