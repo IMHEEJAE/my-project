@@ -12,6 +12,10 @@ export const Wrapper = styled.div`
   border-bottom: 2px solid #000;
   // background-color: #e0dcd0;
   height: 72px;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  z-index: 9999;
 `;
 export const Pc = styled.div`
   // ${mq[1]} {

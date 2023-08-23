@@ -19,6 +19,9 @@ module.exports = {
     "@typescript-eslint/triple-slash-reference": "off",
     "react/display-name": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
-    "@typescript-eslint/no-unused-vars":"off"
+    "@typescript-eslint/no-unused-vars": "off",
+    "treact/no-unknown-property": "off",
+    "@typescript-eslint/restrict-plus-operands": "off",
+    "react/no-unknown-property": ["error", { ignore: ["css"] }],
   },
 };

@@ -7,16 +7,18 @@ import MyPageInfoContainer from "../../units/mypage/Info/MypageInfo.container";
 import { mq } from "../../../commons/styles/globalStyles";
 
 const Body = styled.div`
-  min-height: calc(100vh - 72px);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #e0dcd0;
+  padding-top: 72px;
 `;
 const Mypage = styled.div`
-  min-height: calc(100vh - 72px);
+  min-height: 100vh;
   display: flex;
   background-color: #e0dcd0;
+  padding-top: 72px;
 `;
 const MypageWrap = styled.div`
   position: relative;

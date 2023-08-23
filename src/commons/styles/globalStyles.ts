@@ -1,5 +1,13 @@
 import { css } from "@emotion/react";
 
+export const pxToVW = (pxVal: number) => {
+  return (pxVal / 1920) * 100 + "vw";
+};
+
+export const pxToVH = (pxVal: number) => {
+  return (pxVal / 970) * 100 + "vh";
+};
+
 export const breakpoints = [450, 769, 1366];
 export const mq = breakpoints.map((bp) => `@media (max-width: ${bp}px)`);
 // ${mq[0]} {
@@ -30,7 +38,9 @@ export const globalStyles = css`
     font-family: "MFB";
     src: url(/font/SB_aggro_B.ttf);
   }
-
+  .overflow-hidden {
+    overflow: hidden !important;
+  }
   .ant-dropdown-menu {
     .ant-dropdown-menu-item {
       padding: 0 !important;
