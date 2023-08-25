@@ -3,12 +3,33 @@ import { useEffect } from "react";
 import { css } from "@emotion/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { pxToVW } from "../../../../commons/styles/globalStyles";
-import Link from "next/link";
+import { mq, pxToVW } from "../../../../commons/styles/globalStyles";
 export default function HomeFirst() {
   useEffect(() => {
-    const tl = gsap.timeline({});
+    // ScrollTrigger를 초기화합니다.
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 각 상자에 대한 ScrollTrigger를 만듭니다.
+    const createBoxScrollTrigger = (boxSelector: any, startOffset: any) => {
+      gsap.to(boxSelector, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: boxSelector,
+          start: `top ${startOffset}%`,
+          end: "20% top",
+          scrub: 0.5,
+        },
+      });
+    };
+
+    createBoxScrollTrigger(".box1", 90);
+    createBoxScrollTrigger(".box2", 70);
+    createBoxScrollTrigger(".box3", 90);
+    createBoxScrollTrigger(".box4", 90);
   }, []);
+  const sk00700 = "https://www.00700.com/";
   const insightWeb = "https://www.hanwhasolutions-insight.com";
   const insightMobile = "https://m.hanwhasolutions-insight.com/kr/main.do";
   const jadeWeb = "https://www.jadepalacegc.com/kr/main.do";
@@ -25,7 +46,7 @@ export default function HomeFirst() {
         </div>
         <div className="inner">
           <h5 className="tit">구축</h5>
-          <div className="box">
+          <div className="box box1">
             <div className="img">
               <img src="/images/project/seegene.jpg" />
             </div>
@@ -48,15 +69,24 @@ export default function HomeFirst() {
             </div>
           </div>
 
-          <div className="box type2">
+          <div className="box type2 box2">
             <div className="info">
               <div className="text_box">
                 <span className="title">SK텔링크 00700 국제전화 WEB / APP</span>
                 <div className="text">Vue2</div>
                 <p className="desc">
-                  Pc, Mobile : lounge, charge 페이지
+                  PC, Mobile : lounge, charge 페이지
                   <br />
                   APP : 메인페이지 (인터렉션) / 이벤트 / 공지사항 페이지
+                  <span className="sub url">
+                    <p
+                      onClick={() => {
+                        window.open(sk00700);
+                      }}
+                    >
+                      https://www.00700.com/
+                    </p>
+                  </span>
                 </p>
               </div>
               <span className="year">2022.06 , 2022.10</span>
@@ -66,7 +96,7 @@ export default function HomeFirst() {
             </div>
           </div>
 
-          <div className="box">
+          <div className="box box3">
             <div className="img">
               <img src="/images/project/insight.png" />
             </div>
@@ -102,7 +132,7 @@ export default function HomeFirst() {
             </div>
           </div>
 
-          <div className="box type2">
+          <div className="box type2 box4">
             <div className="info">
               <div className="text_box">
                 <span className="title">제이드팰리스 (PC,Mobile)</span>
@@ -151,7 +181,7 @@ const style = {
     word-break: break-word;
     .intro {
       text-transform: uppercase;
-      font-size: 50px;
+      font-size: ${pxToVW(80)};
       padding-bottom: 150px;
     }
     .inner {
@@ -169,6 +199,7 @@ const style = {
         justify-content: center;
         display: flex;
         align-items: center;
+        opacity: 0;
         padding: 0 ${pxToVW(80)} ${pxToVW(100)};
         &:after {
           content: "";
@@ -236,6 +267,56 @@ const style = {
             padding: 0 0 0 ${pxToVW(100)};
             .year {
               margin: -27px 0 0 -80px;
+            }
+          }
+        }
+
+        ${mq[0]} {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 40px;
+          &:after {
+            display: none;
+          }
+          & > div {
+            width: 100%;
+            &:first-child {
+              margin-right: 0;
+            }
+            &:nth-child(2) {
+              margin-left: 0;
+            }
+          }
+          .img {
+            margin-bottom: 20px;
+          }
+          .info {
+            .title {
+              font-size: 24px;
+            }
+            .text {
+              font-size: 12px;
+              margin-bottom: 10px;
+            }
+            .desc {
+              font-size: 14px;
+              .sub {
+                font-size: 12px;
+                color: #999;
+                &.url {
+                  cursor: none;
+                }
+              }
+            }
+
+            .year {
+              display: none;
+            }
+          }
+          &.type2 {
+            flex-direction: column-reverse;
+            .info {
+              padding: 0;
             }
           }
         }

@@ -185,6 +185,7 @@ const style = {
     position: relative;
     overflow-x: hidden;
     width: 100%;
+
     &.bg-black,
     .bg-black,
     .bg-black:before,

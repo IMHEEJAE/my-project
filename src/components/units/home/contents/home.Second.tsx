@@ -2,7 +2,9 @@
 import { useEffect } from "react";
 import { css } from "@emotion/react";
 import gsap from "gsap";
-import { pxToVW } from "../../../../commons/styles/globalStyles";
+import { mq, pxToVW } from "../../../../commons/styles/globalStyles";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
 export default function HomeSecond() {
   const resortPC = "https://www.hanwharesort.co.kr/irsweb/resort3/index_.do";
   const resortMobile = "https://m2.hanwharesort.co.kr/index.do";
@@ -25,6 +27,71 @@ export default function HomeSecond() {
       SecondGSAP.revert();
     };
   }, []);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    if (window.innerWidth > 768) {
+      const left1TL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".left1",
+          start: "top 150%",
+          end: "20% top",
+          scrub: true,
+        },
+      });
+
+      left1TL.fromTo(
+        ".left1",
+        { x: "-50%", opacity: 0 },
+        { x: "0%", opacity: 1 }
+      );
+
+      const right1TL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".right1",
+          start: "top 150%",
+          end: "20% top",
+          scrub: true,
+        },
+      });
+
+      right1TL.fromTo(
+        ".right1",
+        { x: "50%", opacity: 0 },
+        { x: "0%", opacity: 1 }
+      );
+
+      const left2TL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".left2",
+          start: "top 200%",
+          end: "20% top",
+          scrub: true,
+        },
+      });
+
+      left2TL.fromTo(
+        ".left2",
+        { x: "-50%", opacity: 0 },
+        { x: "0%", opacity: 1 }
+      );
+
+      const right2TL = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".right2",
+          start: "top 150%",
+          end: "40% top",
+          scrub: true,
+        },
+      });
+
+      right2TL.fromTo(
+        ".right2",
+        { x: "50%", opacity: 0 },
+        { x: "0%", opacity: 1 }
+      );
+    }
+  }, []);
   return (
     <>
       <section id="Second" css={style.Second}>
@@ -34,7 +101,7 @@ export default function HomeSecond() {
           <p>운영</p>
         </div>
         <div className="box">
-          <div className="left_wrap">
+          <div className="left_wrap left1">
             <img src="/images/project/hanwharesort.jpg" />
             <div className="text_wrap">
               <span className="title">한화리조트 PC</span>
@@ -49,7 +116,7 @@ export default function HomeSecond() {
               </p>
             </div>
           </div>
-          <div className="right_wrap">
+          <div className="right_wrap right1">
             <img src="/images/project/locallive.jpg" />
             <div className="text_wrap">
               <span className="title">로컬라이브 PC</span>
@@ -66,7 +133,7 @@ export default function HomeSecond() {
           </div>
         </div>
         <div className="box type2">
-          <div className="left_wrap">
+          <div className="left_wrap left2">
             <img src="/images/project/hanwharesortMobile.png" />
             <div className="text_wrap">
               <span className="title">한화리조트 Mobile</span>
@@ -81,7 +148,7 @@ export default function HomeSecond() {
               </p>
             </div>
           </div>
-          <div className="right_wrap">
+          <div className="right_wrap right2">
             <img src="/images/project/localliveMobile.png" />
             <div className="text_wrap">
               <span className="title">로컬라이브 Mobile</span>
@@ -115,7 +182,10 @@ const style = {
     width: 100%;
     -webkit-transition: all 0.3s ease-in;
     transition: all 0.3s ease-in;
-    padding: ${pxToVW(400)} ${pxToVW(20)};
+    padding: ${pxToVW(600)} ${pxToVW(20)} ${pxToVW(200)};
+    ${mq[1]} {
+      padding: ${pxToVW(600)} ${pxToVW(80)} ${pxToVW(200)};
+    }
     .intro {
       font-size: ${pxToVW(150)};
     }
@@ -153,12 +223,56 @@ const style = {
         flex-direction: column;
         .title {
         }
-        .year {
-          font-size: 12px;
-        }
+
         .url {
           font-size: 12px;
           cursor: pointer;
+        }
+      }
+
+      ${mq[1]} {
+        flex-direction: column;
+
+        &.type2 {
+          .left_wrap {
+            img {
+              margin-bottom: 10px;
+              width: 100%;
+            }
+          }
+          .right_wrap {
+            margin-top: 40px;
+            img {
+              margin-bottom: 10px;
+              width: 100%;
+            }
+          }
+        }
+        .left_wrap {
+          margin-top: 40px;
+          img {
+            margin-bottom: 10px;
+            width: 100%;
+          }
+        }
+        .right_wrap {
+          margin-top: 40px;
+          img {
+            margin-bottom: 10px;
+            width: 100%;
+          }
+        }
+        .text_wrap {
+          display: flex;
+          flex-direction: column;
+          .title {
+            font-size: 24px;
+          }
+
+          .url {
+            font-size: 12px;
+            cursor: pointer;
+          }
         }
       }
     }
@@ -178,6 +292,9 @@ const style = {
         border: 2px solid #e0dcd0;
         transition: all 0.3s ease;
         background: #000;
+        ${mq[0]} {
+          height: 80px;
+        }
         .button_inner {
           position: relative;
           display: flex;

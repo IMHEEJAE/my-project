@@ -56,18 +56,29 @@ export default function Layout(props: ILayoutProps) {
   // const isHiddenBanner = HIDDEN_BANNER.includes(router.asPath);
   // const isHiddenNavigation = HIDDEN_NAVIGATION.includes(router.asPath);
   const isHiddenMypage = HIDDEN_MYPAGE.includes(router.asPath);
-
+  // 로그인 회원가입페이지 padding-top 0
+  let pageStyle = {};
+  if (!isHiddenHeader && !isHiddenMypage) {
+    pageStyle = {
+      paddingTop: "72px",
+    };
+  } else {
+    pageStyle = {
+      paddingTop: "0",
+    };
+  }
   return (
     <>
       {!isHiddenHeader && <LayoutHeaderContainer />}
       {/* {!isHiddenBanner && <LayoutBannerContainer />} */}
       {/* {!isHiddenNavigation && <LayoutNavigationContainer />} */}
-      {!isHiddenMypage && <Body>{props.children}</Body>}
-      {isHiddenMypage && (
+      {!isHiddenMypage ? (
+        <Body style={pageStyle}>{props.children}</Body>
+      ) : (
         <Mypage>
           <MypageWrap>
             <MyPageInfoContainer />
-            <MypageContents>{props.children}</MypageContents>
+            <MypageContents style={pageStyle}>{props.children}</MypageContents>
           </MypageWrap>
         </Mypage>
       )}
