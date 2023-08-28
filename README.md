@@ -49,3 +49,12 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 |          | Uuid              |
 
 ❗️상세 스택은 package.json을 참고해 주세요
+
+# 프로젝트 상세
+
+</details>
+<br/>
+
+## 미리보기
+![pc_board1](https://github.com/IMHEEJAE/my-project/assets/124327891/216769fa-e165-470f-9bbf-d46ef8b74a66)
+![pc_board1](https://github.com/IMHEEJAE/my-project/assets/124327891/29dafe3a-989d-4c84-a0b7-101cc001fe4d)
