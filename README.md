@@ -5,8 +5,8 @@
 | Frontend | React             |
 |          | Typescript        |
 |          | Graphql           |
-|          | Emotion           |
 |          | Recoil            |
+|          | Emotion           |
 |          | Styled Components |
 |          | Antd              |
 |          | GSAP              |
