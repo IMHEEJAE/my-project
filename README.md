@@ -4,7 +4,7 @@
 | -------- | ----------------- |
 | Frontend | React             |
 |          | Typescript        |
-|          | Axios             |
+|          | Graphql           |
 |          | Emotion           |
 |          | Recoil            |
 |          | Styled Components |
