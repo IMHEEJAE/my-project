@@ -26,7 +26,7 @@
 <br/>
 
 ## 미리보기
-http://heejae-deploy.shop<br/>
+### http://heejae-deploy.shop<br/>
 ## PC
 용량으로 인해 화질이 안좋은 점 유의 바랍니다.
 
